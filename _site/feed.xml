@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ko"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="ko" /><updated>2021-03-24T15:37:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">hyesung</title><subtitle>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</subtitle><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><entry><title type="html">RESTful API</title><link href="http://localhost:4000/2021/02/18/RESTful-API/" rel="alternate" type="text/html" title="RESTful API" /><published>2021-02-18T00:00:00+09:00</published><updated>2021-02-18T00:00:00+09:00</updated><id>http://localhost:4000/2021/02/18/RESTful%20API</id><content type="html" xml:base="http://localhost:4000/2021/02/18/RESTful-API/">&lt;h3 id=&quot;restful-api&quot;&gt;RESTful API&lt;/h3&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="기타" /><summary type="html">RESTful API</summary></entry><entry><title type="html">JavaScript - Monster</title><link href="http://localhost:4000/2021/02/15/JavaScript/" rel="alternate" type="text/html" title="JavaScript - Monster" /><published>2021-02-15T14:20:00+09:00</published><updated>2021-02-15T14:20:00+09:00</updated><id>http://localhost:4000/2021/02/15/JavaScript</id><content type="html" xml:base="http://localhost:4000/2021/02/15/JavaScript/">&lt;h3 id=&quot;-task-1-api-호출&quot;&gt;👾 Task 1. API 호출&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;위 주소를 호출하여 데이터 로딩을 처리해주세요!&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- componentDidMount()
+- fetch
+- setState (monsters 에 저장)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;componentDidMount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;https://jsonplaceholder.typicode.com/users&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;-task-2-api-호출의-결과값-props-로-자식에게-전달&quot;&gt;👾 Task 2. API 호출의 결과값 props 로 자식에게 전달&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;API 호출 후 저장한 배열을 자식 컴포넌트인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;CardList /&amp;gt;&lt;/code&gt; 에 넘겨주세요. (props 활용)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;넘겨준 후 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CardList.js&lt;/code&gt; 에서 props 를 콘솔에 찍어 확인해주세요.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Monsters.js&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Monsters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;컴포넌트 재사용 연습!&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CardList&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monsterFilter&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/28b4ff68-cc1c-4989-99e9-44a82eea5774/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-09%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.27.56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-task-3-arraymap--사용&quot;&gt;👾 Task 3. Array.map( ) 사용&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;넘겨받은 배열을 기준으로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array.map()&lt;/code&gt; 함수를 활용하여 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Card /&amp;gt;&lt;/code&gt; 컴포넌트를 리턴해주세요.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Card.js&lt;/code&gt; 에게 넘겨줘야하는 props 는 각 몬스터 객체의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;name&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;email&lt;/code&gt; 입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CardList&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//ES6 객체, 배열 구조 분해 할당&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monsters&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;card-list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Card&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;-task-4-props-활용&quot;&gt;👾 Task 4. props 활용&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Card 컴포넌트 구조&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;이미지주소&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+  	&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Name&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Email&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Card&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;card-container&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`https://robohash.org/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;?set=set2&amp;amp;size=180x180`&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;moster&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;-task-5-필터링-로직-구현filter-메소드-활용&quot;&gt;👾 Task 5. 필터링 로직 구현(filter 메소드 활용)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;여기서 비교 대상은 monster 객체의 name 값입니다.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소문자로 바꾼 monster.name 값과 userInput값을 비교.&lt;/li&gt;
+  &lt;li&gt;filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// SearchBox 에 props로 넘겨줄 handleChange 메소드 정의&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;userInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// SearchBox.js&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBox&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Search...&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;onChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Monsters.js&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monsterFilter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;monster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Monsters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;컴포넌트 재사용 연습!&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SearchBox&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;handleChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleChange&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CardList&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;monsters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;monsterFilter&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/26ac479f-0385-4508-b86f-7a7f084153e8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-15%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.29.40.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://images.velog.io/images/hyehye/post/946b2d38-f170-4527-92a4-acb47750418d/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-15%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.29.53.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="JavaScript" /><summary type="html">👾 Task 1. API 호출</summary></entry><entry><title type="html">JavaScript - spread syntax</title><link href="http://localhost:4000/2021/02/09/JavaScript/" rel="alternate" type="text/html" title="JavaScript - spread syntax" /><published>2021-02-09T14:20:00+09:00</published><updated>2021-02-09T14:20:00+09:00</updated><id>http://localhost:4000/2021/02/09/JavaScript</id><content type="html" xml:base="http://localhost:4000/2021/02/09/JavaScript/">&lt;h3 id=&quot;spread-syntax&quot;&gt;spread syntax&lt;/h3&gt;
+
+&lt;p&gt;배열이나 문자열과 같이 반복 가능한 문자를 0개 이상의 인수 (함수로 호출할 경우) 또는 요소 (배열 리터럴의 경우)로 확장하여, 0개 이상의 키-값의 쌍으로 객체로 확장시킬 수 있는 문법으로 ‘…‘을 사용한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-copy복사&quot;&gt;1. Copy(복사)&lt;/h4&gt;
+
+&lt;p&gt;기존에 하나하나씩 복사는 할 때는 배열의 map 또는 foreach를 이용할 수 있었으나, spread syntax를 이용하여 아래와 같이 간단하게 표현할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// array copy&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arraycopy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//[1, 2, 3, 4, 5]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;👉🏻 …은 array에 들어있는 아이템 하나하나씩을 각각 낱개로 가져와서 복사해오는 것을 말한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// obj copy&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🍏&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🍎&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;objcopy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// {key1 : &apos;🍏&apos;, key2 : &apos;🍎&apos;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;👉🏻 object를 가리키고 있는 변수는 실제로 object를 담고 있는 것이 아닌 object가 들어있는 메모리의 주소값을 가지고 있다. 그래서 동일한 object를 가리키고 있는 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// obj copy&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🍌&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;objcopy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//{key1 : &apos;🍌&apos;, key2 : &apos;🍎&apos;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;👉🏻 key1을 ‘🍌’로 변경하고 다시 출력한 뒤 확인을 해보면 값이 변경된 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;✨✨✨ spread 연산자는 object가 가리키고 있는 주소의 참조값만을 복사해오기때문에 원래의 object를 변경하게 되면 spread 해온 값에 영향을 주기에 유의해서 사용할 것!✨✨✨&lt;/p&gt;
+
+&lt;h4 id=&quot;2-concatenation-연결&quot;&gt;2. Concatenation (연결)&lt;/h4&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// array&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animal1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🐶&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🐱&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🐭&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animal2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🐹&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🦊&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🐰&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;animals&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animal1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animal2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [&apos;🐶&apos;, &apos;🐱&apos;, &apos;🐭&apos;,&apos;🐹&apos;, &apos;🦊&apos;, &apos;🐰&apos;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// obj&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;weather1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;☀️&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;weather2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🌧&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;weather&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;weather1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;weather2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//{sun : &apos;☀️&apos;, rain : &apos;🌧&apos;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flower1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🌷&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flower2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;🌹&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flower&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;flower1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;flower2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//{rose : &apos;🌹&apos;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;👉🏻 만약 key가 동일한 object를 병합하게 되면 제일 뒤에 있는 내용이 앞에 있는 내용을 덮어씌우기 때문에 주의할 것!&lt;/p&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="JavaScript" /><summary type="html">spread syntax</summary></entry><entry><title type="html">JavaScript - map &amp;amp; key props</title><link href="http://localhost:4000/2021/02/02/JavaScript/" rel="alternate" type="text/html" title="JavaScript - map &amp;amp; key props" /><published>2021-02-02T14:20:00+09:00</published><updated>2021-02-02T14:20:00+09:00</updated><id>http://localhost:4000/2021/02/02/JavaScript</id><content type="html" xml:base="http://localhost:4000/2021/02/02/JavaScript/">&lt;h2 id=&quot;arraymap&quot;&gt;Array.map&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바스크립트 배열 객체의 내장 함수&lt;/li&gt;
+  &lt;li&gt;반복되는 컴포넌트의 렌더링 가능&lt;/li&gt;
+  &lt;li&gt;파라미터로 전달된 함수를 사용하여 배열 내 각 요소를 원하는 규칙에 따라 변환한 후 그 결과로 새로운 배열에 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key&quot;&gt;key&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리액트에서 key는 컴포넌트 배열을 렌더링했을 때, 어떤 항목에 변동이 있었는지를 알아내려고 사용한다.&lt;/li&gt;
+  &lt;li&gt;유동적인 데이터 -&amp;gt; 생성 or 제거 or 수정 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-설정&quot;&gt;key 설정&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;key 값을 설정할 때는 map함수의 인자로 전달되는 함수 내부에서 컴포넌트 props를 설정하듯이 설정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;commentArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Comment&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;key의 값은 언제나 유일해야 한다
+=&amp;gt; 데이터가 가진 고윳값을 key로 설정해야 한다.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="JavaScript" /><summary type="html">Array.map</summary></entry><entry><title type="html">UX</title><link href="http://localhost:4000/2021/01/29/UX/" rel="alternate" type="text/html" title="UX" /><published>2021-01-29T14:20:00+09:00</published><updated>2021-01-29T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/29/UX</id><content type="html" xml:base="http://localhost:4000/2021/01/29/UX/">&lt;h2 id=&quot;웹-사이트의-발전&quot;&gt;웹 사이트의 발전&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User Interaction 의 중요성 증가 + 웹 서비스의 복잡성 증가 + 사용자 수, 데이터의 양 증가&lt;/li&gt;
+  &lt;li&gt;이전에 겪지 못한 두 가지 문제 - 1. 동시 접속자 수, 2. 데이터의 양 → System architecture 의 발전 -웹 사이트/서비스들이 엄청나게 발전되고 규모가 커짐에 따라 시스템 구조도 훨씬 더 복잡하고 커지게 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;spa--ssr--csr&quot;&gt;SPA + SSR + CSR&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SPA(Single Page Application)
+:페이지가 하나인 어플리케이션
+SPA로 렌더링 할 경우 서버에서 제공하는 페이지가 한 페이지이기 때문에 로딩을 한 번 하고나서 페이지를 이동할 때마다 서버에 새로운 페이지를 요청하는 것이 아닌 새 페이지에서 필요한 데이터만 받아와서 다른 종류의 뷰를 보여주는 것&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;SSR(Server Side Rendering)&lt;/dt&gt;
+      &lt;dd&gt;서버에서 렌더링을 작업하는 것
+장점) 초기 렌더링 속도가 매우 빠르며 SEO를 사용할 수 있음
+단점) 간단한 데이터 수정에도 서버를 거쳐야하는 불편함이 따르기 때문에 초기 렌더링 수행은 빠르지만 연속적으로 렌더링 수행을 할 경우 서버에 과부하가 올 수 있음&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;CSR ( Client Side Rendering)&lt;/dt&gt;
+      &lt;dd&gt;렌더링에서 사용자에게 필요한 부분만 서버로부터 로딩하는 방식
+주고받게 되는 데이터의 양이 현저히 줄어들고 연속된 렌더링으로 인한 과부하를 줄일 수 있음&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;uxuser-experience---사용자-경험&quot;&gt;UX(User Experience) - 사용자 경험&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/9dc1d82a-e1e7-4c29-a1d7-da4ad61f9d88/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;사용자-규칙&quot;&gt;사용자 규칙&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자는 웹페이지를 읽지 않고, 단지 훑어본다.&lt;/li&gt;
+  &lt;li&gt;사람들은 사용법을 스스로 알아낼 수 없는 웹사이트는 사용하지 않는다.&lt;/li&gt;
+  &lt;li&gt;사용자는 흔히 ‘정보의 냄새’라고 부르는 자취를 따라가며, 목표를 분명히 보여주는 링크는 사용자가 따라갈 수 있는 강력한 냄새를 뿜어낸다.&lt;/li&gt;
+  &lt;li&gt;창의적이고 혁신적인 방법은 사용자의 편의성이 확실히 보장된 상태에서 해야한다.&lt;/li&gt;
+  &lt;li&gt;명료성이 일관성보다 중요하다.&lt;/li&gt;
+  &lt;li&gt;클릭할 수 있는 요소를 명확히 표시해야한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ui---ux&quot;&gt;UI - UX&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/e19ada0c-8c36-4cac-b1cf-1b26f5fe36cc/image.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://images.velog.io/images/hyehye/post/44ecd2c7-eeda-443e-ba2f-b86f02e52b5d/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-ux를-고려한-웹사이트는-사용자의-경험을-예측하여-시각적인-피로도를-낮추고-더불어-사이트의-접근성도-높힌다&quot;&gt;✨ UX를 고려한 웹사이트는 사용자의 경험을 예측하여 시각적인 피로도를 낮추고 더불어 사이트의 접근성도 높힌다!&lt;/h3&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="기타" /><summary type="html">웹 사이트의 발전</summary></entry><entry><title type="html">CRA</title><link href="http://localhost:4000/2021/01/28/CRA/" rel="alternate" type="text/html" title="CRA" /><published>2021-01-28T14:20:00+09:00</published><updated>2021-01-28T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/28/CRA</id><content type="html" xml:base="http://localhost:4000/2021/01/28/CRA/">&lt;h2 id=&quot;cra-초기-폴더-및-파일-세팅-구성&quot;&gt;CRA 초기 폴더 및 파일 세팅 구성&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/04710443-9178-401f-a16f-077242b44640/default-cra.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nodemodules&quot;&gt;node.modules&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CRA를 구성하는 모든 패키지 소스코드가 존재하는 폴더&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;packagejson&quot;&gt;package.json&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CRA 기본 패키지 외 추가로 설치된 라이브러리/패키지정보(종류,버전)가 기록되는 파일&lt;/li&gt;
+  &lt;li&gt;모든 프로젝트마다 package.json 하나씩 존재&lt;/li&gt;
+  &lt;li&gt;“dependencies”
+    &lt;ul&gt;
+      &lt;li&gt;리액트를 사용하기 위한 모든 패키지 리스트 , 버전 확인가능
+        &lt;ul&gt;
+          &lt;li&gt;실제 코드는 node.modules 폴더에 존재&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;“scripts”
+    &lt;ul&gt;
+      &lt;li&gt;run : 프로젝트를 development mode(개발 모드) 실행을 위한 명령어
+        &lt;ul&gt;
+          &lt;li&gt;build : 프로젝트 production mode(배포 모드) 실행을 위한 명령어(서비스 상용화)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gitignore&quot;&gt;.gitignore&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;github에 올리고 싶지 않은 폴더 및 파일을 작성할 수 있음&lt;/li&gt;
+  &lt;li&gt;push할 경우 .gitignore파일에 작성된 폴더 및 파일은 업로드가 되지 않음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;nodemodules-와-packagejson에서-이중으로-패키지를-관리하는-이유&quot;&gt;node.modules 와 package.json에서 이중으로 패키지를 관리하는 이유&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;실제 내가 작성한 코드 및 패키지는 내 로컬에만 존재&lt;/li&gt;
+  &lt;li&gt;github 에 올릴 때 내가 작성한 코드와 함께 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt;(추가로 설치한 패키지 정보) 전달&lt;/li&gt;
+  &lt;li&gt;다른 사람이 그것을 (pull) 받아서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm install&lt;/code&gt; 만 입력하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; 에 기록되어 있는 패키지의 이름과 버전 정보를 확인하여 자동으로 설치&lt;/li&gt;
+  &lt;li&gt;github 에 올릴 때, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;node.modules&lt;/code&gt; 는 불필요한 용량을 차지하기 때문에,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; 파일에 github 에 올리고 싶지 않은 폴더와 파일을 작성 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;기타-폴더&quot;&gt;기타 폴더&lt;/h3&gt;
+
+&lt;h4 id=&quot;public&quot;&gt;public&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;index.html&lt;/li&gt;
+  &lt;li&gt;images&lt;/li&gt;
+  &lt;li&gt;data - mock data 관리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;src&quot;&gt;src&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;components : 공통 컴포넌트 관리&lt;/li&gt;
+  &lt;li&gt;pages : 페이지 단위의 컴포넌트 폴더로 구성
+    &lt;ul&gt;
+      &lt;li&gt;Login : Login.js , Login.scss
+        &lt;ul&gt;
+          &lt;li&gt;Main : Main.js , Main.scss&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;styles
+    &lt;ul&gt;
+      &lt;li&gt;reset.scss : css 초기화
+        &lt;ul&gt;
+          &lt;li&gt;commom.scss : 공통으로 사용하는 css 속성 정의&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;기타
+    &lt;ul&gt;
+      &lt;li&gt;여러 페이지에서 동시에 사용되는 컴포넌트 -&amp;gt; components 폴더에서 관리
+        &lt;ul&gt;
+          &lt;li&gt;페이지 컴포넌트 -&amp;gt; pages 폴더에서 관리&lt;/li&gt;
+          &lt;li&gt;해당 페이지 내에서만 사용하는 컴포넌트 -&amp;gt; 해당 페이지 컴포넌트 폴더 하위에서 관리&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="React" /><summary type="html">CRA 초기 폴더 및 파일 세팅 구성</summary></entry><entry><title type="html">React</title><link href="http://localhost:4000/2021/01/27/React/" rel="alternate" type="text/html" title="React" /><published>2021-01-27T14:20:00+09:00</published><updated>2021-01-27T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/27/React</id><content type="html" xml:base="http://localhost:4000/2021/01/27/React/">&lt;h2 id=&quot;frontend-frameworklibrary의-등장&quot;&gt;Frontend Framework(Library)의 등장&lt;/h2&gt;
+
+&lt;p&gt;보여지는 것인 UI(User Interface)와 할수 있는 것인 UX(User Experience)가 많아지면서 요즘에는 웹 애플리케이션(Web Application)이라는 단어를 많이 사용된다.&lt;/p&gt;
+
+&lt;p&gt;애플리케이션의 규모가 커지고 다양한 UI,UX를 구현하기 위해서는 이전의 방법으로는 개발하고 코드유지보는 하는게 어려워짐에 따라
+👉🏻 “규모가 커지고 복잡한 애플리케이션을 개발하며 생산성을 향상시키고 많은 양의 데이터 관리와 코드 유지 보수를 더욱 편리하게 하기 위해 다양한 Frontend Framework(Library)가 등장”하게 된 것이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;frontend-frameworklibrary&quot;&gt;Frontend Framework(Library)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;UI를 자동으로 업데이트 해주는 장점을 가지고 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;angular&quot;&gt;Angular&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2010년 Google에서 개발한 Framework&lt;/li&gt;
+  &lt;li&gt;TypeScript 기반으로 매우 안정적이고 탄탄한 Frontend App개발 가능&lt;/li&gt;
+  &lt;li&gt;다양한 기능 내장&lt;/li&gt;
+  &lt;li&gt;무겁고 배우기 어려움&lt;/li&gt;
+  &lt;li&gt;MVC(Model-View-Controller) Architecture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;vue&quot;&gt;Vue&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014년 Evan You라는 개인이 개발한 Framework&lt;/li&gt;
+  &lt;li&gt;코드가 깔끔하고 배위기 쉬움&lt;/li&gt;
+  &lt;li&gt;급 성장중&lt;/li&gt;
+  &lt;li&gt;MVC(Model-View-Controller) Architecture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;react&quot;&gt;React&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2013년 Facebook에서 개발한 Library&lt;/li&gt;
+  &lt;li&gt;View만 담당&lt;/li&gt;
+  &lt;li&gt;third-party 라이브러리와 함께 사용(ex. React-router, Redux )&lt;/li&gt;
+  &lt;li&gt;생태계 활성화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;react란&quot;&gt;React란&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자 인터페이스(UI)를 만들기 위한 JavaScript 라이브러리&lt;/li&gt;
+  &lt;li&gt;가상돔(Virtual Dom)을 통해 UI를 빠르게 업데이트함
+-&amp;gt; 가상돔: 이전 UI 상태를 메모리에 유지해서, 변경될 UI의 최소 집합을 계산하는 기술&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;작업환경설정&quot;&gt;작업환경설정&lt;/h2&gt;
+
+&lt;h4 id=&quot;nodejs&quot;&gt;Node.js&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바스크립트가 브라우저 밖에서도 동작하게 하는 환경&lt;/li&gt;
+  &lt;li&gt;프로젝트를 개발하는 데 필요한 주요 도구들(ex.바벨, 웹팩 등)이 Node.js 기반이기에 반드시 설치 필요&lt;/li&gt;
+  &lt;li&gt;npm(node package manager)이 자동으로 설치&lt;/li&gt;
+  &lt;li&gt;터미널 명령어 : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ node -v&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;npm&quot;&gt;npm&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Node 기반의 패키지를 사용하기 위해 패키지 도구 필요&lt;/li&gt;
+  &lt;li&gt;다양한 패키지를 설치하고 버전을 관리할 수 있음&lt;/li&gt;
+  &lt;li&gt;터미널 명령어 : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ npm -v&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;cracreate-react-app&quot;&gt;CRA(Create-React-App)&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리액트 프로젝트를 시작하는 데 필요한 개발 환경을 세팅 해주는 도구(toolchain)&lt;/li&gt;
+  &lt;li&gt;리액트는 UI만 제공하기에 개발자가 직접 개발환경을 구축해야 하는 것들이 많음 🌟 CRA를 이용하면 하나의 명령어로 리액트 개발환경 구축 가능
+🔥 CRA는 리액트로 웹 애플리케이션을 만들기 위한 환경 제공 🔥&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="React" /><summary type="html">Frontend Framework(Library)의 등장</summary></entry><entry><title type="html">HTTP</title><link href="http://localhost:4000/2021/01/21/HTTP/" rel="alternate" type="text/html" title="HTTP" /><published>2021-01-21T14:20:00+09:00</published><updated>2021-01-21T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/21/HTTP</id><content type="html" xml:base="http://localhost:4000/2021/01/21/HTTP/">&lt;h1 id=&quot;httphypertext-transfer-protocol&quot;&gt;HTTP(HyperText Transfer Protocol)&lt;/h1&gt;
+
+&lt;h3 id=&quot;1-의미&quot;&gt;1. 의미&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HyperText : HTML의 HyperText와 의미가 동일&lt;/li&gt;
+  &lt;li&gt;Transfer : 사전적의미로 “전송하다”이며, 전송에 큰 의미가 있다. 그리고 보내는 주체와 받는 주체가 있다는 것이 큰 특징&lt;/li&gt;
+  &lt;li&gt;Protocol : 협약, 통신 규약의 의미를 가지며, 물리적으로 떨어진 컴퓨터끼리 어떻게 HTML파일(HyperText)를 주고 받을지에 대한 약속&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-특징&quot;&gt;2. 특징&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Request / REsponse (요청/응답)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;보내는 주체는 받는 주체에게 요청을 보내고, 받는 주체는 요청을 보낸 주체에게 응답을 보내는 것.&lt;/li&gt;
+  &lt;li&gt;요청과 응답은 소통의 핵심&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stateless&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각각의 HTTP통신(요청/응답)은 독립적이기에 과거의 통신을 알지못하므도 “매 통신마다 필요한 모든 정보를 담아서 요청을 보내야 한다”&lt;/li&gt;
+  &lt;li&gt;State(상태) + less (없음)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-request--response&quot;&gt;3. Request / REsponse&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-메세지-구조&quot;&gt;Request 메세지 구조&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start Line&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.velog.io/images/hyehye/post/a5469e39-4509-44d4-ad2a-1d7edd64d40b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-25%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.19.08.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP Method : 해당 요청이 의도한 액션을 정의하는 부분 (주로 GET / POST / DELETE를 많이 사용)&lt;/li&gt;
+  &lt;li&gt;Request target : 해당 request가 전송되는 목표 url&lt;/li&gt;
+  &lt;li&gt;HTTP Version : HTTP버전으로 주로 1.1 버전이 널리 쓰임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Headers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;key : value 값
+Headers : {
+Host : 요청을 보내는 목표(타겟)의 주소
+User-Agent : 요청을 보내는 클라이언트에 대한 정보
+Content-Type : 해당 요청이 보내는 메세지 body의 타입
+Authorization : 회원의 인증/인가를 처리하기 위해 로그인 토근을 담는 것
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Body&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해당 요청의 실제 내용으로 주로 Body를 사용하는 메소드는 POST이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4-http-request-methods&quot;&gt;4. HTTP Request Methods&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;get&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이름 그대로 어떤 데이터를 서버로부터 받아올때 주로 사용하는 메소드&lt;/li&gt;
+  &lt;li&gt;데이터를 받아오기만 할때 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;POST&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 생성 / 수정할 때 주로 사용되는 메소드&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;DELETE&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특정 데이터를 서버에서 삭제 요청을 보낼 때 쓰는 메소드&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="기타" /><summary type="html">HTTP(HyperText Transfer Protocol)</summary></entry><entry><title type="html">Git &amp;amp; GitHub</title><link href="http://localhost:4000/2021/01/20/Git/" rel="alternate" type="text/html" title="Git &amp;amp; GitHub" /><published>2021-01-20T14:20:00+09:00</published><updated>2021-01-20T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/20/Git</id><content type="html" xml:base="http://localhost:4000/2021/01/20/Git/">&lt;h1 id=&quot;git&quot;&gt;Git&lt;/h1&gt;
+
+&lt;p&gt;Git의 공식 명칭은 분산 버전 관리 시스템(VCS : Version Control System)이라 한다.
+여기에서 말하는 Version이란, 업데이트(히스토리)를 관리하는 것이라 볼 수 있다.
+git에서는 파일은 1개이지만, 수정사항은 로그로 기록하여 용량을 줄일 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;코드-버전-관리를-하는-이유&quot;&gt;코드 버전 관리를 하는 이유&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;수정할 때마다 파일을 새로 만들면 관리가 힘듦&lt;/li&gt;
+  &lt;li&gt;언제든 이전의 코드로 되돌아 갈 수 있기 때문&lt;/li&gt;
+  &lt;li&gt;이력을 남기기 위해(=&amp;gt; 문제발생 시 , 원인을 찾기위해서)&lt;/li&gt;
+  &lt;li&gt;1개의 프로젝트에 여러명의 개발자가 협업하기 때문&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;github&quot;&gt;GitHub&lt;/h1&gt;
+
+&lt;p&gt;github란, git을 사용한 프로젝트의 저장소이며, 개발자들의 Social Network이다.&lt;/p&gt;
+
+&lt;p&gt;✍🏻 GitHub와 구글드라이브의 차이점&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;github&lt;/th&gt;
+      &lt;th&gt;구글드라이브&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;키보드 명령어(터미널)로 조작&lt;/td&gt;
+      &lt;td&gt;마우스로 조작&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;개발자가 원하는 시점에 push&lt;/td&gt;
+      &lt;td&gt;실시간 동기화 가능&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;(구글드라이브 : 구글에서 제공하는 클라우드 기반 협업도구이자 파일저장/공유 서비스)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;✨ Git : 버전관리시스템(인터넷 필요 X)&lt;/p&gt;
+
+&lt;p&gt;✨ GitHub : Git을 이용해 버전관리한 프로젝트들을 관리하게 해주는 호스팅 서비스&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;-가장-중요하고-기본적인-git-명령어&quot;&gt;💡 가장 중요하고 기본적인 Git 명령어&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;git 시작 : git init&lt;/li&gt;
+  &lt;li&gt;git 상태확인 : git status&lt;/li&gt;
+  &lt;li&gt;파일수정이력기록준비 : git add&lt;/li&gt;
+  &lt;li&gt;파일수정이력기록 : git commit&lt;/li&gt;
+  &lt;li&gt;commit 이력보기 : git log&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="Git" /><summary type="html">Git</summary></entry><entry><title type="html">JavaScript - Math 객체</title><link href="http://localhost:4000/2021/01/18/JavaScript/" rel="alternate" type="text/html" title="JavaScript - Math 객체" /><published>2021-01-18T14:20:00+09:00</published><updated>2021-01-18T14:20:00+09:00</updated><id>http://localhost:4000/2021/01/18/JavaScript</id><content type="html" xml:base="http://localhost:4000/2021/01/18/JavaScript/">&lt;h1 id=&quot;math&quot;&gt;Math&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math&lt;/code&gt;는 수학적인 상수와 함수를 위한 속성과 메서드를 가진 내장 객체이다.&lt;/p&gt;
+
+&lt;p&gt;Math 객체에 수학계산 메서드가 많이 있지만 그 중에서 자주 사용하는 것들만 정리해보려한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;메서드&quot;&gt;메서드&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.ceil&lt;/code&gt; : 소수점 첫째 자리에서 올림&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.floor&lt;/code&gt; : 소수점 첫째 자리에서 내림&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//2&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.round()&lt;/code&gt; : 소수점 첫째 자리에서 반올림&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//3&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.random()&lt;/code&gt; : 0과 1 사이의 난수를 반환&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//0.804286431831789&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mathrandom---랜덤함수&quot;&gt;Math.random() - 랜덤함수&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.random()&lt;/code&gt;함수는 0과 1 미만의 난수를 반환한다. 비록 0.0000000000000000에서 0.9999999999999999 사이의 값에서 랜덤수를 제공하지만, 이 랜덤함수를 이용해서 개발자가 원하는 범위의 랜덤수를 설정할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;Math.random()이 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Math.floor&lt;/code&gt;를 사용하면 더 균일한 랜덤 값을 생성할 수 있다. (Math.round를 사용하게 되면 0과 1이 나올 수 있는 확률이 절반으로 줄어들게 된다.)&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게만 작성하게 되면 0만 나오게되니 범위를 지정해주고 사용하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 0 ~ 9의 랜덤 정수&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 ~ 10의 랜덤 정수&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;두-값-사이의-난수-생성하기&quot;&gt;두 값 사이의 난수 생성하기&lt;/h3&gt;
+
+&lt;p&gt;: 함수의 반환값은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min&lt;/code&gt;보다 크거나 같으며, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max&lt;/code&gt;보다 작다.&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getRandomArbitrary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;두-값-사이의-정수-생성하기&quot;&gt;두 값 사이의 정수 생성하기&lt;/h3&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;: 반환값은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min&lt;/code&gt;(단, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min&lt;/code&gt;이 정수가 아니면 보다 큰 최소의 정수)보다 크거나 같으며 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max&lt;/code&gt;보다 작다.&lt;/dt&gt;
+  &lt;dd&gt;최소값은 포함 / 최대값은 제외&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getRandomInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;최대값을-포함하는-두-값-사이의-정수-생성하기&quot;&gt;최대값을 포함하는 두 값 사이의 정수 생성하기&lt;/h3&gt;
+
+&lt;p&gt;: 최대값 - 최소값 포함&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getRandomIntInclusive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//최댓값도 포함, 최솟값도 포함&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Hyesung Heo</name><email>hye.ss929@gmail.com</email></author><category term="JavaScript" /><summary type="html">Math</summary></entry></feed>

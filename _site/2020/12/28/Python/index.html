@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Python 자료형 외 | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Python 자료형 외" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="1. 자료형" />
+<meta property="og:description" content="1. 자료형" />
+<link rel="canonical" href="http://localhost:4000/2020/12/28/Python/" />
+<meta property="og:url" content="http://localhost:4000/2020/12/28/Python/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-28T14:50:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Python 자료형 외" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/12/28/Python/"},"description":"1. 자료형","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2020/12/28/Python/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"Python 자료형 외","dateModified":"2020-12-28T14:50:00+09:00","datePublished":"2020-12-28T14:50:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Python 자료형 외</h1>
+  <div class="post-meta"><time datetime="2020-12-28T14:50:00+09:00" itemprop="datePublished">28 Dec 2020</time></div>
+
+  <h3 id="1-자료형">1. 자료형</h3>
+
+<ol>
+  <li>숫자형</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자형</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">'파이썬'</span><span class="p">)</span>
+<span class="n">파이썬</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"파이썬"</span><span class="p">)</span>
+<span class="n">파이썬</span>
+</code></pre></div></div>
+
+<p>문자열은 <code class="language-plaintext highlighter-rouge">''</code>나 <code class="language-plaintext highlighter-rouge">""</code>를 입력하여 문자열을 작성한다.</p>
+
+<ol>
+  <li>Boolean</li>
+</ol>
+
+<p>Boolean이란, 참과 거짓을 이야기한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="bp">True</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span><span class="mi">10</span><span class="p">))</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<h3 id="2-변수형">2. 변수형</h3>
+
+<p>변수란, 고정되지 않은 값으로 숫자나 문자 등을 저장할 수 있으며 변수에 값을 저장하려면 = 기호를 사용한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">animal</span> <span class="o">=</span> <span class="s">"고양이"</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">"나비"</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">is_adult</span> <span class="o">=</span> <span class="n">age</span> <span class="o">&gt;=</span><span class="mi">3</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"우리집"</span> <span class="o">+</span> <span class="n">animal</span> <span class="o">+</span> <span class="s">"의 이름은"</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"예요."</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">"는 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s">"살이예요."</span> <span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">"는 어른일까요? "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">is_adult</span><span class="p">))</span>
+
+<span class="n">우리집</span> <span class="n">고양이의</span> <span class="n">이름은</span> <span class="n">나비예요</span><span class="p">.</span>
+<span class="n">나비는</span> <span class="mi">4</span><span class="n">살이예요</span><span class="p">.</span>
+<span class="n">나비는</span> <span class="n">어른일까요</span><span class="err">?</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p>정수형을 문자형으로, 또는 boolean형으로 바꿔주기 위해서는 str를 앞에 입력을 해주어야 제대로 출력되어 나온다</p>
+
+<h3 id="3-주석">3. 주석</h3>
+
+<p>주석이란, 프로그램 코드 내에는 포함이 되어 있지만 실행이 되지않는 것으로, 소스코드의 설명을 해둔다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># print("우리집" + animal + "의 이름은" + name + "예요.")
+</span></code></pre></div></div>
+
+<p>시작을 #으로 하여 작성하거나, ‘’’,’'’이렇게 입력하면 또한 주석처리된다.</p>
+
+<p>또는 여러문장을 선택하여 command + / 하면 더욱 빠르게 주석처리할 수 있다.</p>
+
+<h3 id="4-연산자">4. 연산자</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">6</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#2^3
+</span><span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="o">%</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#나머지 구하기
+</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="o">//</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#몫 구하기
+</span><span class="mi">1</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">#앞의 값과 뒤의 값이 같다는 표기
+</span><span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="n">출력</span> <span class="c1">#앞의 값과 뒤의 값이 같지 않다는 표기
+</span><span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">((</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">))</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">((</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">))</span>
+<span class="bp">True</span>
+<span class="c1"># and 와 &amp;은 동일하게 쓸 수 있음.(조건이 모두 일치할 때, True)
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">((</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">))</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">((</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">))</span>
+<span class="bp">True</span>
+<span class="c1"># or 와 |은 동일하게 쓸 수 있음. (조건 중 하나만 일치할 때, True)
+</span></code></pre></div></div>
+
+<h3 id="5-랜덤함수">5. 랜덤함수</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div></div>
+
+<ul>
+  <li>모듈에 존재하는 모든 함수를 가져오는 방법으로, *는 모든 함수를 지칭한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">())</span>         <span class="c1">#0.0 ~ 1.0 미만의 임의의 값
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>      <span class="c1"># 0.0 ~ 10.0 미만의 임의의 값
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># 0 ~ 10 미만의 임의의 값
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 ~ 10 이하의 임의의 값
+</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">51</span><span class="p">))</span> <span class="c1"># 1 ~ 51 미만의 임의의 값
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>  <span class="c1"># 1 ~ 50 이하의 임의의 값
+</span></code></pre></div></div>
+
+<h3 id="6-문자열">6. 문자열</h3>
+
+<ol>
+  <li>슬라이싱</li>
+</ol>
+
+<p>슬라이싱이란, 문자열의 특정 범위를 선택할 때 주로 사용한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resident</span> <span class="o">=</span> <span class="s">"991225-1234567"</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/1e075e23-749e-49cf-a221-51ed292ae7aa/1.png" alt="" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#[시작번호:끝번호]에서 시작번호를 생략하면 처음부터 끝번호 앞까지의 수를 가져온다.
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"생년월일 : "</span> <span class="o">+</span> <span class="n">resident</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">생년월일</span> <span class="p">:</span> <span class="mi">991225</span>
+
+<span class="c1">#[시작번호:끝번호]에서 끝번호를 생략하면 시작번호부터 끝까지의 수를 가져온다.
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"뒤 7자리 : "</span> <span class="o">+</span> <span class="n">resident</span><span class="p">[</span><span class="mi">7</span><span class="p">:])</span>
+<span class="n">뒤</span> <span class="mi">7</span><span class="n">자리</span> <span class="p">:</span> <span class="mi">1234567</span>
+
+<span class="c1">#[시작번호:끝번호]에서 시작번호가 음수일 경우, 맨뒤에서 7번째부터 끝까지의 수를 가져옴.
+</span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"뒤 7자리(뒤부터) : "</span> <span class="o">+</span> <span class="n">resident</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">:])</span>
+<span class="n">뒤</span> <span class="mi">7</span><span class="n">자리</span><span class="p">(</span><span class="n">뒤부터</span><span class="p">)</span> <span class="p">:</span> <span class="mi">1234567</span>
+</code></pre></div></div>
+
+<ol>
+  <li>인덱싱</li>
+</ol>
+
+<p>인덱싱이란, 문자열에서 그 위치에 해당하는 문자를 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># "Hello World" 0번째 위치에 있는 문자를 출력하라.
+</span><span class="o">&gt;&gt;&gt;</span><span class="k">print</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">H</span>
+
+<span class="c1"># "Hello World" -1번째 위치에 있는 문자를 출력하라
+</span><span class="o">&gt;&gt;&gt;</span><span class="k">print</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># "안녕하세요" -1번째 위치에 있는 문자를 호출하라
+</span><span class="n">d</span>
+</code></pre></div></div>
+
+<ol>
+  <li>formet</li>
+</ol>
+
+<p>formet이란, 문자열의 원하는 곳에 값을 대입하는 방법으로 문자열의 특정 값을 바꾸거나 세팅하기 위해 사용한다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%d</code> : 정수값을 대입</li>
+  <li><code class="language-plaintext highlighter-rouge">%s</code> : 문자열을 대입</li>
+  <li><code class="language-plaintext highlighter-rouge">%c</code> : 문자 1개만 대입</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 %d살 입니다."</span> <span class="o">%</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">나는</span> <span class="mi">20</span><span class="n">살</span> <span class="n">입니다</span><span class="p">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 %s을 좋아해요."</span> <span class="o">%</span> <span class="s">"파이썬"</span><span class="p">)</span>
+<span class="n">나는</span> <span class="n">파이썬을</span> <span class="n">좋아해요</span><span class="p">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"Apple은 %c로 시작해요."</span> <span class="o">%</span> <span class="s">"A"</span><span class="p">)</span>
+<span class="n">Apple은</span> <span class="n">A로</span> <span class="n">시작해요</span><span class="p">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 %s색과 %s색을 좋아해요."</span> <span class="o">%</span> <span class="p">(</span><span class="s">"파랑"</span><span class="p">,</span> <span class="s">"빨간"</span><span class="p">))</span>
+<span class="n">나는</span> <span class="n">파랑색과</span> <span class="n">빨간색을</span> <span class="n">좋아해요</span><span class="p">.</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{} .format()</code> 으로도 사용할 수 있다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 {}살 입니다."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">나는</span> <span class="mi">20</span><span class="n">살</span> <span class="n">입니다</span><span class="p">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 {}색과 {}색을 좋아해요."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"노랑"</span><span class="p">,</span><span class="s">"보라"</span><span class="p">))</span>
+<span class="n">나는</span> <span class="n">노랑색과</span> <span class="n">보라색을</span> <span class="n">좋아해요</span><span class="p">.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 {0}색과 {1}색을 좋아해요."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"노랑"</span><span class="p">,</span><span class="s">"보라"</span><span class="p">))</span>
+<span class="n">나는</span> <span class="n">노랑색과</span> <span class="n">보라색을</span> <span class="n">좋아해요</span><span class="p">.</span>
+
+<span class="c1">#인덱스의 위치를 통해 순서변경도 가능
+</span><span class="o">&gt;&gt;&gt;</span> <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">"나는 {1}색과 {0}색을 좋아해요."</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"노랑"</span><span class="p">,</span><span class="s">"보라"</span><span class="p">))</span>
+<span class="n">나는</span> <span class="n">보라색과</span> <span class="n">노랑색을</span> <span class="n">좋아해요</span><span class="p">.</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">f 포맷팅</code></li>
+</ul>
+
+<p>파이썬 v3.6 이상부터 사용가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s">"보라"</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"나는 </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s">살이며, </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s">색을 좋아해요."</span><span class="p">)</span>
+<span class="n">나는</span> <span class="mi">20</span><span class="n">살이며</span><span class="p">,</span> <span class="n">보라색을</span> <span class="n">좋아해요</span><span class="p">.</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자열 처리함수</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">python</span> <span class="o">=</span> <span class="s">"Python is Amazing"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>lower : 대문자를 소문자로 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">python</span><span class="p">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">python</span> <span class="ow">is</span> <span class="n">amazing</span>
+</code></pre></div></div>
+
+<ul>
+  <li>upper : 소문자를 대문자로 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">python</span><span class="p">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="n">PYTHON</span> <span class="n">IS</span> <span class="n">AMAZING</span>
+</code></pre></div></div>
+
+<ul>
+  <li>isupper : 문자열 위치에 해당하는 문자가 대문자인지를 알려주기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">python</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">isupper</span><span class="p">())</span>
+<span class="bp">True</span>
+</code></pre></div></div>
+
+<ul>
+  <li>len : 문자열 길이 구하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">python</span><span class="p">))</span>
+<span class="mi">17</span>
+</code></pre></div></div>
+
+<ul>
+  <li>replace : 문자열 바꾸기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">python</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"Python"</span><span class="p">,</span><span class="s">"Java"</span><span class="p">))</span>
+<span class="n">Java</span> <span class="ow">is</span> <span class="n">Amazing</span>
+</code></pre></div></div>
+
+<ul>
+  <li>count : 문자 개수 세기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">python</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">"n"</span><span class="p">)</span>
+<span class="mi">2</span>
+</code></pre></div></div>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#python">python</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

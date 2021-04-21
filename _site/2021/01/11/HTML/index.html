@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>HTML - Semantic Web와 Semantic Tags | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="HTML - Semantic Web와 Semantic Tags" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="시맨틱 웹(Semantic Web )" />
+<meta property="og:description" content="시맨틱 웹(Semantic Web )" />
+<link rel="canonical" href="http://localhost:4000/2021/01/11/HTML/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/11/HTML/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-11T14:10:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HTML - Semantic Web와 Semantic Tags" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/11/HTML/"},"description":"시맨틱 웹(Semantic Web )","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/11/HTML/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"HTML - Semantic Web와 Semantic Tags","dateModified":"2021-01-11T14:10:00+09:00","datePublished":"2021-01-11T14:10:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">HTML - Semantic Web와 Semantic Tags</h1>
+  <div class="post-meta"><time datetime="2021-01-11T14:10:00+09:00" itemprop="datePublished">11 Jan 2021</time></div>
+
+  <h2 id="시맨틱-웹semantic-web-">시맨틱 웹(Semantic Web )</h2>
+
+<ul>
+  <li>의미를 가지는 웹</li>
+  <li>웹에 존재하는 수많은 웹페이지들에 메타데이터를 부여하여, “의미”와 “관련성”을 가지는 거대한 데이터베이스로 구축하고자하는 발상</li>
+</ul>
+
+<h2 id="시맨틱-태그-semantic-tags">시맨틱 태그 (Semantic Tags)</h2>
+
+<ul>
+  <li>의미를 가지는 태그</li>
+  <li>문서의 구조와 의미를 브라우저와 개발자 모두에게 명확하게 설명하는 것</li>
+  <li>이를 통해 HTML 요소의 의미를 명확히 해석하고 그 데이터를 활용할 수 있는 시맨틱 웹을 실현 가능</li>
+</ul>
+
+<h4 id="-기존의-non-semantic-요소-">👉🏻 기존의 non-semantic 요소 :</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code> 등</li>
+  <li>컨텐츠에 대해 어떠한 설명도 하지 않는다.</li>
+</ul>
+
+<h4 id="-semantic-요소-">👉🏻 semantic 요소 :</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;form&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;article&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code> 등</li>
+  <li>컨텐츠를 명확하게 설명한다.</li>
+</ul>
+
+<h4 id="-html5에서-새롭게-추가된-시맨틱-태그">👉🏻 HTML5에서 새롭게 추가된 시맨틱 태그</h4>
+
+<p><img src="https://images.velog.io/images/hyehye/post/5e4912d1-5fb4-4605-baa0-a8fa4d128e4f/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202020-12-06%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.49.35.png" alt="" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;header&gt;</code> :헤더를 의미
+<code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code> : 네비게이션을 의미
+<code class="language-plaintext highlighter-rouge">&lt;aside&gt;</code> : 사이드에 위치하는 공간을 의미
+<code class="language-plaintext highlighter-rouge">&lt;section&gt;</code> : 본문의 여러 내용 (article)을 포함하는 공간을 의미
+<code class="language-plaintext highlighter-rouge">&lt;article&gt;</code> : 본문의 주 내용이 들어가는 공간을 의미
+<code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code> : 문서 또는 섹션의 바닥글을 지정</p>
+
+<h4 id="-사이트에-이미지-넣는-방법">✨ 사이트에 이미지 넣는 방법</h4>
+
+<p>사이트에 이미지를 넣는 방법은 두가지가 있다. 하나는 <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code>태그를 사용하는 것과 또 한가지는 <code class="language-plaintext highlighter-rouge">&lt;div&gt; 태그에 background-image 속성</code>을 추가하는 것이다.
+두 가지 방법은 웹 브라우저에 나타나는 모습은 동일하다.
+<strong>다만,</strong> <code class="language-plaintext highlighter-rouge">&lt;div&gt; 태그에 background-image 속성</code>의 이미지는 검색 엔진에서 크롤링을 하거나 색인을 생성하지 않는다. 단순히 시각화한 페이지에 불과하다.
+<code class="language-plaintext highlighter-rouge">&lt;img&gt;</code>는 이미지가 검색엔진에서 노출되며, 이미지가 정상적으로 작동하지 않을 경우 <code class="language-plaintext highlighter-rouge">&lt;alt&gt;</code>를 통하여 이미지 설명을 첨부할 수 있다.</p>
+
+<p>=&gt; 단순히 ‘장식’으로 사용할 때는 <code class="language-plaintext highlighter-rouge">background-image</code>를, 의미있는 글과 함께 이미지가 검색엔진에서 노출되길 원한다면 <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code>태그를 사용하는 것이 좋다.</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#html">html</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

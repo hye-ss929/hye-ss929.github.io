@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Javascript - async &amp; await | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Javascript - async &amp; await" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="async &amp; await" />
+<meta property="og:description" content="async &amp; await" />
+<link rel="canonical" href="http://localhost:4000/2021/01/07/JavaScript/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/07/JavaScript/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-07T14:10:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Javascript - async &amp; await" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/07/JavaScript/"},"description":"async &amp; await","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/07/JavaScript/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"Javascript - async &amp; await","dateModified":"2021-01-07T14:10:00+09:00","datePublished":"2021-01-07T14:10:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Javascript - async & await</h1>
+  <div class="post-meta"><time datetime="2021-01-07T14:10:00+09:00" itemprop="datePublished">7 Jan 2021</time></div>
+
+  <h2 id="async--await">async &amp; await</h2>
+
+<ul>
+  <li>async 와 await는 Promise를 간결/간편하고 동기적으로 실행되는것 처럼 보이게 만들어주는 API</li>
+  <li>async 와 await는 새로운 것이 추가 된게 아니라, 기존에 존재하는 Promise 위에 조금 더 간편한 API를 제공함 (syntactic sugar)</li>
+</ul>
+
+<h3 id="1-async">1. async</h3>
+
+<ul>
+  <li>async를 사용하면 함수의 코드 블록이 자동으로 Promise로 변환이 되어짐</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">fetchUser</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span> <span class="c1">//함수로 바로 호출(받아오는 값이 같으므로 생략가능)</span>
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">fetchUser</span><span class="p">();</span> <span class="c1">//변수에 할당하여 호출</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="2-await">2. await</h3>
+
+<ul>
+  <li>await는 async 함수 내부에만 사용 가능하다.</li>
+  <li>error처리 : try / catch 사용</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">ms</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">getApple</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nx">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">🍎</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">getBanana</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="nx">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">🍌</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">pickFruits</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">apple</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getApple</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">banana</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getBanana</span><span class="p">();</span>
+  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">apple</span><span class="p">}</span><span class="s2"> + </span><span class="p">${</span><span class="nx">banana</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">pickFruits</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>async와 await를 이용해서 동기적으로 코드를 작성하듯이, 원래 자연스럽게 코드를 작성하는 것처럼 리턴값도 자연스러우니 매우 간편하다.</p>
+
+<h3 id="3-await-병렬처리---promise-apis-사용">3. await 병렬처리 - Promise APIs 사용</h3>
+
+<p>**<Promise.all>**</Promise.all></p>
+
+<ul>
+  <li>Array 와 같이 순회 가능한(iterable) 객체에 포함된 모든 값을 담은 배열을 인자로 받고 여러 Promise 의 결과를 집계할 때 유용하게 사용</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">pickFruits</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">getApple</span><span class="p">(),</span> <span class="nx">getBanana</span><span class="p">()]).</span><span class="nx">then</span><span class="p">((</span><span class="nx">fruits</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">fruits</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> + </span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">pickFruits</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/323ab2d7-c46e-4203-bc7d-15702bb6f872/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.16.png" alt="" />
+getApple의 Promise와 getBanana의 Promise의 배열을 전달받아 받아진 배열을 전달받아 문자열로 변환해주었다.</p>
+
+<p>**<Promise.race>**</Promise.race></p>
+
+<ul>
+  <li>가장 먼저 처리되는 Promise의 결과(혹은 에러)를 반환</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">unction</span> <span class="nx">delay</span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">ms</span><span class="p">)));</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">getApple</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">🍎</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">getBanana</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">🍌</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">pickOnlyOne</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">getApple</span><span class="p">(),</span> <span class="nx">getBanana</span><span class="p">()]);</span>
+<span class="p">}</span>
+
+<span class="nx">pickOnlyOne</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/1a371f7f-5caa-49cf-a09a-aec29fad5e6a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.53.58.png" alt="" /></p>
+
+<p>🍌가 1초만에 전달되었기때문에 🍌만 출력되는 것을 볼 수 있다.</p>
+
+<blockquote>
+  <p>출처 : 드림코딩 by 엘리 https://youtu.be/aoQSOZfz3vQ</p>
+</blockquote>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#javascript">javascript</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

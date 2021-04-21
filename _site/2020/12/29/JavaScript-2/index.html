@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>JavaScript - 데이터타입 | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="JavaScript - 데이터타입" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="1. 자바스크립트의 변수선언" />
+<meta property="og:description" content="1. 자바스크립트의 변수선언" />
+<link rel="canonical" href="http://localhost:4000/2020/12/29/JavaScript-2/" />
+<meta property="og:url" content="http://localhost:4000/2020/12/29/JavaScript-2/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-29T14:10:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JavaScript - 데이터타입" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/12/29/JavaScript-2/"},"description":"1. 자바스크립트의 변수선언","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2020/12/29/JavaScript-2/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"JavaScript - 데이터타입","dateModified":"2020-12-29T14:10:00+09:00","datePublished":"2020-12-29T14:10:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">JavaScript - 데이터타입</h1>
+  <div class="post-meta"><time datetime="2020-12-29T14:10:00+09:00" itemprop="datePublished">29 Dec 2020</time></div>
+
+  <h3 id="1-자바스크립트의-변수선언">1. 자바스크립트의 변수선언</h3>
+
+<h4 id="-variable---변경가능한-read--write">* Variable - 변경가능한, Read / Write</h4>
+
+<ol>
+  <li>var</li>
+</ol>
+
+<p>기존의 JavaScript(ES5)에서 변수 선언문으로, 아래와 같은 문제점이 있었다.</p>
+
+<ul>
+  <li>변수를 선언하기 전에 호출이 가능하다.(undefined)</li>
+  <li>Function Scope(해당함수의 내부로 범위가 지정된 변수)를 갖는다.</li>
+  <li>Block Scope({ }로 범위가 지정된 변수)이 없다.</li>
+  <li>var hoisting(선언의 위치와 상관없이 항상 제일 위로 선언을 끌어 올려주는 것)</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span> <span class="c1">//undefined</span>
+<span class="nx">age</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">age</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ol>
+  <li>let</li>
+</ol>
+
+<ul>
+  <li>ES6부터 변수 선언을 위해 만들어졌다.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// let을 이용하여 a 변수를 선언하여 'apple' 값 할당</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// a 변수에 'hello' 재할당</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/58ed38a7-9c7a-422c-b203-abf595ebf7fd/1.png" alt="" /></p>
+
+<ul>
+  <li>block scope {}</li>
+</ul>
+
+<p>{}(중괄호)를 이용하여 코드를 작성하게 되면 블럭 밖에서는 더이상 블럭 안에 있는 내용들을 볼 수 없게 된다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// 값이 나오지 않음</span>
+</code></pre></div></div>
+
+<ul>
+  <li>global scope</li>
+</ul>
+
+<p>블록을 사용하지 않고 코드 내의 전 범위에서 사용이 가능하기 때문에 가능한 한 필요한 곳에만 사용하는 것이 좋다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">globalName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">global name</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalName</span><span class="p">);</span> <span class="c1">// 중괄호 밖에서도 출력</span>
+<span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalName</span><span class="p">);</span> <span class="c1">// 중괄호 안에서도 출력</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="-contant---변경불가능한-read-only"><em>* Contant - 변경불가능한, Read only</em></h4>
+
+<ol>
+  <li>const</li>
+</ol>
+
+<ul>
+  <li>보안성</li>
+  <li>스레드 안정성</li>
+  <li>코드를 변경했을 때의 실수를 방지</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 변수 선언 시,
+   Mutable 타입 let 사용 (변경가능한 타입)
+   Immutable타입 const 사용 (변경이 불가한 타입)
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">daysInWeek</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">maxNumber</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-variable-types-변경가능한-타입들">* Variable types 변경가능한 타입들</h4>
+
+<ul>
+  <li>
+    <dl>
+      <dt>더이상 작은 단위로 나눠질 수 없는 타입(primitive, single item)</dt>
+      <dd>
+        <p>숫자 / 문자 / 참과 거짓 / null / undefiedn / symbol</p>
+      </dd>
+    </dl>
+  </li>
+  <li>object(싱글의 묶음) / box container</li>
+  <li>function, first-class function</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="mf">17.1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: &amp;{count}, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">//type : number</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: &amp;{size}, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">size</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">//type : number</span>
+</code></pre></div></div>
+
+<ol>
+  <li>숫자(Number) - 특수한 숫자값 : infinity(무한대) / -infinity(-무한대) / NaN(Not a Number)</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">infinity</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">negativeInfinity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">nAn</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">not a numer</span><span class="dl">"</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">infinity</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">negativeInfinity</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nAn</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/5a07b42a-4a06-49a4-ac18-ed5091293d5f/2.png" alt="" /></p>
+
+<ol>
+  <li>문자(String)</li>
+</ol>
+
+<p>자바스크립트는 다른 언어와 달리 한 가지의 글자나 여러개의 글자 모두 string이다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">char</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">tom</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">tom</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">tom</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">greeting</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">greeting</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">//type : string</span>
+<span class="kd">const</span> <span class="nx">helloTom</span> <span class="o">=</span> <span class="s2">`hi </span><span class="p">${</span><span class="nx">tom</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">helloTom</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">helloTom</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">//type : string</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 템플릿 문자열
+   ``(backtick) 과 ${}를 사용하면 더욱 편리하게 문자열을 생성할 수 있다.
+</code></pre></div></div>
+
+<ol>
+  <li>참과 거짓(boolean)</li>
+</ol>
+
+<ul>
+  <li>False : 0 / null / undefined / NaN / ‘ ‘</li>
+  <li>True : any other value ( 다른 값)</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">canRead</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// fales</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">canRead</span><span class="p">}</span><span class="s2">, type:</span><span class="p">${</span><span class="k">typeof</span> <span class="nx">canRead</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">test</span><span class="p">}</span><span class="s2">, type:</span><span class="p">${</span><span class="k">typeof</span> <span class="nx">test</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li>null (텅텅 비어있는 값)</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">nothing</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value:</span><span class="p">${</span><span class="nx">nothing</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">nothing</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : object</span>
+</code></pre></div></div>
+
+<ol>
+  <li>undefined (선언은 해두었으나 값이 지정이 안 된 경우)</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">x</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">x</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : undefined</span>
+</code></pre></div></div>
+
+<ol>
+  <li>symbol, create unique identifiers for objects (고유한 식별자가 필요하거나 동시다발적으로 일어나는 코드에서 우선순위를 주고 싶을 때)</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">symbol1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">symbol2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">symbol1</span> <span class="o">===</span> <span class="nx">symbol2</span><span class="p">);</span> <span class="c1">// False</span>
+
+<span class="kd">const</span> <span class="nx">symbol1</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">symbol2</span> <span class="o">=</span> <span class="nb">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">symbol1</span> <span class="o">===</span> <span class="nx">symbol2</span><span class="p">);</span> <span class="c1">// True</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">symbol1</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">symbol1</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-dynamic-typing---동적-타이핑">* Dynamic typing - 동적 타이핑</h4>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 인덱싱</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : string</span>
+<span class="nx">text</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : number</span>
+<span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : string</span>
+<span class="nx">text</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span> <span class="o">/</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`value: </span><span class="p">${</span><span class="nx">text</span><span class="p">}</span><span class="s2">, type: </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">text</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// type : number</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>💡 변수 설정에 따라 string 또는 number 로 중간에 바뀌기도 하니 주의할 것!
+</code></pre></div></div>
+
+<blockquote>
+  <p>출처 : 드림코딩 by 엘리 https://youtu.be/OCCpGh4ujb8</p>
+</blockquote>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#javascript">javascript</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

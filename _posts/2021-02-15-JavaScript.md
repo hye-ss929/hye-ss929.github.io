@@ -1,0 +1,159 @@
+---
+layout: post
+title: JavaScript - Monster
+date: 2021-02-15
+tags: [JavaScript]
+excerpt: 👾몬스터 과제
+---
+
+### 👾 Task 1. API 호출
+
+> 1.  위 주소를 호출하여 데이터 로딩을 처리해주세요!
+
+    - componentDidMount()
+    - fetch
+    - setState (monsters 에 저장)
+
+```jsx
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          monsters: data,
+        });
+      });
+  }
+```
+
+### 👾 Task 2. API 호출의 결과값 props 로 자식에게 전달
+
+> - API 호출 후 저장한 배열을 자식 컴포넌트인 `<CardList />` 에 넘겨주세요. (props 활용)
+
+> - 넘겨준 후 `CardList.js` 에서 props 를 콘솔에 찍어 확인해주세요.
+
+```jsx
+// Monsters.js
+  render() {
+    return (
+      <div className="Monsters">
+        <h1>컴포넌트 재사용 연습!</h1>
+        <CardList monsters={monsterFilter} />
+      </div>
+    );
+  }
+}
+```
+
+![](https://images.velog.io/images/hyehye/post/28b4ff68-cc1c-4989-99e9-44a82eea5774/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-09%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.27.56.png)
+
+### 👾 Task 3. Array.map( ) 사용
+
+> - 넘겨받은 배열을 기준으로 `Array.map()` 함수를 활용하여 `<Card />` 컴포넌트를 리턴해주세요.
+
+- `Card.js` 에게 넘겨줘야하는 props 는 각 몬스터 객체의 `id`, `name`, `email` 입니다.
+
+```jsx
+class CardList extends Component {
+  render() {
+    //ES6 객체, 배열 구조 분해 할당
+    const { monsters } = this.props;
+    return (
+      <div className="card-list">
+        {monsters.map((monster) => {
+          return (
+            <Card
+              key={monster.id}
+              id={monster.id}
+              name={monster.name}
+              email={monster.email}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+}
+```
+
+### 👾 Task 4. props 활용
+
+> Card 컴포넌트 구조
+
+```jsx
+	<img src=이미지주소 alt="">
+  	<h2>Name</h2>
+	<p>Email</p>
+```
+
+```jsx
+class Card extends Component {
+  render() {
+    const { id, name, email } = this.props;
+    return (
+      <div className="card-container">
+        <img
+          src={`https://robohash.org/${id}?set=set2&size=180x180`}
+          alt="moster"
+        ></img>
+        <h2>{name}</h2>
+        <p>{email}</p>
+      </div>
+    );
+  }
+}
+```
+
+### 👾 Task 5. 필터링 로직 구현(filter 메소드 활용)
+
+> - 여기서 비교 대상은 monster 객체의 name 값입니다.
+
+- 소문자로 바꾼 monster.name 값과 userInput값을 비교.
+- filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
+
+```jsx
+// SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+handleChange = (e) => {
+  this.setState({
+    userInput: e.target.value,
+  });
+};
+```
+
+```jsx
+// SearchBox.js
+class SearchBox extends Component {
+  render() {
+    return (
+      <input
+        className="search"
+        type="search"
+        placeholder="Search..."
+        onChange={this.props.handleChange}
+      />
+    );
+  }
+}
+```
+
+```jsx
+// Monsters.js
+  render() {
+    const monsterFilter = this.state.monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(this.state.userInput.toLowerCase())
+    );
+    return (
+      <div className="Monsters">
+        <h1>컴포넌트 재사용 연습!</h1>
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monsters={monsterFilter} />
+      </div>
+    );
+  }
+}
+```
+
+![](https://images.velog.io/images/hyehye/post/26ac479f-0385-4508-b86f-7a7f084153e8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-15%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.29.40.png)
+![](https://images.velog.io/images/hyehye/post/946b2d38-f170-4527-92a4-acb47750418d/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-02-15%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2012.29.53.png)

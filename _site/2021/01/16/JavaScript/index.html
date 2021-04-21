@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>JavaScript - Array 활용 | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="JavaScript - Array 활용" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="1. 배열" />
+<meta property="og:description" content="1. 배열" />
+<link rel="canonical" href="http://localhost:4000/2021/01/16/JavaScript/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/16/JavaScript/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-16T14:20:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JavaScript - Array 활용" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/16/JavaScript/"},"description":"1. 배열","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/16/JavaScript/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"JavaScript - Array 활용","dateModified":"2021-01-16T14:20:00+09:00","datePublished":"2021-01-16T14:20:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">JavaScript - Array 활용</h1>
+  <div class="post-meta"><time datetime="2021-01-16T14:20:00+09:00" itemprop="datePublished">16 Jan 2021</time></div>
+
+  <h3 id="1-배열">1. 배열</h3>
+
+<p>배열을 사용하면 하나의 변수에 모든 데이터를 갖고 있을 수 있으며, <code class="language-plaintext highlighter-rouge">[](대괄호)</code>로 감싸져 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 데이터가 없는 빈 배열</span>
+<span class="kd">let</span> <span class="nx">cities</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">서울</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">대전</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">대구</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">부산</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">광주</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">제주도</span><span class="dl">"</span><span class="p">];</span>
+<span class="c1">//요소 자리에는 문자열, 숫자열, 배열 모두 가능하다.</span>
+<span class="kd">let</span> <span class="nx">anything</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">대전</span><span class="dl">"</span><span class="p">,</span> <span class="mi">1987</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">하나</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">둘</span><span class="dl">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">]];</span>
+</code></pre></div></div>
+
+<h3 id="2-인덱스">2. 인덱스</h3>
+
+<p>인덱스를 통해 배열에 접근할 수 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">anything</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">대전</span><span class="dl">"</span><span class="p">,</span> <span class="mi">1987</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">하나</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">둘</span><span class="dl">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">]];</span>
+<span class="c1">//</span>
+<span class="nx">anything</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// 대전</span>
+<span class="nx">anything</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// 1987</span>
+<span class="nx">anything</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">//['하나','둘',3]</span>
+</code></pre></div></div>
+
+<h3 id="3-활용">3. 활용</h3>
+
+<ol>
+  <li>배열이 담긴 arr 변수에 접근하여 getElement 함수가 “array” 라는 문자열을 return 할 수 있도록 해주세요.</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//문제</span>
+<span class="kd">function</span> <span class="nx">getElement</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">array</span><span class="dl">"</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
+<span class="p">}</span>
+
+<span class="c1">//풀이</span>
+<span class="kd">function</span> <span class="nx">getElement</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="dl">"</span><span class="s2">array</span><span class="dl">"</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이 문제는 배열 속에 들어있는 여러가지 요소 중 “array”만을 return해야 한다.</p>
+
+<p>인덱스를 통하여 “array”가 들어있는 배열에 접근하려 한다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>인덱스는 0은 3이며, 인덱스 1은 아래와 같다.
+<img src="https://images.velog.io/images/hyehye/post/f2cdff21-24d4-4942-94a6-68056b24130a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.48.52.png" alt="" /></p>
+
+<p>이 배열에서 array가 들어있는 인덱스는 1임으로 다시 인덱스[1]를 불러온 뒤 값은 아래와 같다.
+<img src="https://images.velog.io/images/hyehye/post/3c670b5b-e7dd-4e2e-990a-3181ff7b5ea2/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.50.24.png" alt="" /></p>
+
+<p>마지막으로 인덱스[0]에 접근하게 되면 “array”만 return되는 것을 볼 수 있다.
+<img src="https://images.velog.io/images/hyehye/post/5a201d5c-ec94-42ed-a653-635a17aaf653/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-14%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.51.49.png" alt="" /></p>
+
+<p>2.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//문제
+- addFirstAndLast 함수 안에 작성해주세요.
+- addFirstAndLast 함수에 주어진 인자 `myArray`는 숫자 값으로만 이루어진 array 입니다.
+- addFirstAndLast 함수에 주어진 인자 `myArray` 의 첫번째 element와 마지막 element의 값을 더한 값을 리턴해주세요.
+- 만일 `myArray`에 한 개의 요소만 있다면 해당 요소의 값을 리턴해 주시고 요소가 없는 비어있는 array라면 0을 리턴해주세요.
+</code></pre></div></div>
+
+<p>이 문제는 length를 사용하여 풀 수 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">addFirstAndLast</span><span class="p">(</span><span class="nx">myArray</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">myArray</span><span class="p">[</span><span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>빈 배열의 길이는 0이므로 0 그대로 리턴을 하고, 배열이 하나 있을 경우 인덱스는 0부터 시작함으로 <code class="language-plaintext highlighter-rouge">myArray[0]</code>을 리턴한다.
+문제에서 myArray의 첫번째 요소와 마지막 요소를 더하라 했기에 첫번째 요소를 <code class="language-plaintext highlighter-rouge">myArray[0]</code>로 불러오고, 마지막 요소는 <code class="language-plaintext highlighter-rouge">myArray.length-1</code>으로 배열의 가장 마지막을 불러와서 더해줄 수 있다.</p>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#javascript">javascript</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

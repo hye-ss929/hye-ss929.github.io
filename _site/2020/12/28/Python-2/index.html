@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Python 리스트 외 | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Python 리스트 외" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="7. 리스트" />
+<meta property="og:description" content="7. 리스트" />
+<link rel="canonical" href="http://localhost:4000/2020/12/28/Python-2/" />
+<meta property="og:url" content="http://localhost:4000/2020/12/28/Python-2/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-28T14:51:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Python 리스트 외" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/12/28/Python-2/"},"description":"7. 리스트","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2020/12/28/Python-2/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"Python 리스트 외","dateModified":"2020-12-28T14:51:00+09:00","datePublished":"2020-12-28T14:51:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Python 리스트 외</h1>
+  <div class="post-meta"><time datetime="2020-12-28T14:51:00+09:00" itemprop="datePublished">28 Dec 2020</time></div>
+
+  <h3 id="7-리스트">7. 리스트</h3>
+
+<p>리스트란, 순서를 가지는 객체의 집합이다.</p>
+
+<p>리스트를 만들 때에는 대괄호([])로 감싸주고, 요소값은 쉼표(,)로 구분해준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">리스트</span> <span class="o">=</span> <span class="p">[</span> <span class="n">요소1</span><span class="p">,</span> <span class="n">요소2</span><span class="p">,</span> <span class="n">요소3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ol>
+  <li>리스트의 연산</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">+</code> : 리스트 더하기 (= 리스트 합치기)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="p">)</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">*</code>: 리스트 반복하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ol>
+  <li>리스트 처리함수</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subway</span> <span class="o">=</span> <span class="p">[</span> <span class="s">"동래"</span><span class="p">,</span> <span class="s">"서면"</span><span class="p">,</span> <span class="s">"남포"</span> <span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>append : 리스트 추가하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subway</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">"해운대"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">subway</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'동래'</span><span class="p">,</span> <span class="s">'서면'</span><span class="p">,</span> <span class="s">'남포'</span><span class="p">,</span> <span class="s">'해운대'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>insert : 리스트 사이에 추가하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subway</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">"센텀"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">subway</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'동래'</span><span class="p">,</span> <span class="s">'센텀'</span><span class="p">,</span> <span class="s">'서면'</span><span class="p">,</span> <span class="s">'남포'</span><span class="p">,</span> <span class="s">'해운대'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pop : 리스트 요소 꺼내기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">subway</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">subway</span><span class="p">)</span>
+<span class="n">해운대</span>
+<span class="p">[</span><span class="s">'동래'</span><span class="p">,</span> <span class="s">'센텀'</span><span class="p">,</span> <span class="s">'서면'</span><span class="p">,</span> <span class="s">'남포'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>sort : 리스트 정렬하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>reverse : 리스트 뒤집기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>clear : 리스트 모두 삭제하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="p">[]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>extend : 리스트 확장하기</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; subway.extend(num)
+&gt;&gt;&gt; print(subway)
+['동래', '센텀', '서면', '남포', 5, 4, 3, 2, 1]
+</code></pre></div></div>
+
+<h3 id="8-딕셔너리">8. 딕셔너리</h3>
+
+<p>딕셔너리란, 말 그대로 사전이란 뜻으로 키(key)와 값(value)를 쌍으로 갖는 자료형이다. 리스트와의 차이점은 리스트는 값을 다루기 위해 인덱스를 사용하지만, 딕셔너리는 키를 사용해 관련된 정보를 연관시킨다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="n">Key1</span><span class="p">:</span><span class="n">Value1</span><span class="p">,</span> <span class="n">Key2</span><span class="p">:</span><span class="n">Value2</span><span class="p">,</span> <span class="n">Key3</span><span class="p">:</span><span class="n">Value3</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 딕셔너리는 중괄호({})안에 Key:Value 형태로 이루어져 있으며 쉼표(,)로 구분한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s">"사과"</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s">"포도"</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s">"망고"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>딕셔너리 추가하기</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">"수박"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'사과'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'포도'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'망고'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'수박'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>딕셔너리 삭제하기</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'사과'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'망고'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'수박'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>딕셔너리 사용함수</li>
+</ol>
+
+<ul>
+  <li>get : key 로 value 얻기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">망고</span>
+</code></pre></div></div>
+
+<p>위처럼 <code class="language-plaintext highlighter-rouge">get</code>을 이용하여 key로 value를 얻을 수 있다. 이때 괄호는 ()(소괄호)를 사용한다.</p>
+
+<p>만약 존재하지 않는 키를 가져오라고 할 경우, 아래처럼 오류가 발생하게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="bp">None</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">KeyError</span><span class="p">:</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<p>info.get(5)는 None을 출력시키고, info[5]는 오류를 발생시키고 프로그램이 종료된다. 만약 값이 있다면 값을 가져오고, 값이 없을 경우 다른 텍스트를 출력하고 싶을 때는 아래와 같이 쓸 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s">"사용가능"</span><span class="p">))</span>
+<span class="n">사용가능</span> <span class="c1"># 값이 없을 경우 출력
+</span></code></pre></div></div>
+
+<ul>
+  <li>in : key 가 딕셔너리 안에 있는지 알아보기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">info</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">info</span><span class="p">)</span>
+
+<span class="bp">True</span>
+<span class="bp">False</span>
+</code></pre></div></div>
+
+<ul>
+  <li>keys : key 들만 출력하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">dict_keys</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ul>
+  <li>values : value 들만 출력하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">dict_values</span><span class="p">([</span><span class="s">'사과'</span><span class="p">,</span> <span class="s">'망고'</span><span class="p">,</span> <span class="s">'수박'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ul>
+  <li>items : key, value 모두 출력하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">dict_items</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="s">'사과'</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">'망고'</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">'수박'</span><span class="p">)])</span>
+</code></pre></div></div>
+
+<ul>
+  <li>clear : key, value 모두 지우기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">info</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{}</span>
+</code></pre></div></div>
+
+<h3 id="9-튜플">9. 튜플</h3>
+
+<p>튜플은 리스트와 비슷하지만, 리스트는 값을 []로 감싸고, 튜플은 값을 ()로 감싼다.</p>
+
+<p>리스트는 값의 수정, 삭제가 가능하지만 튜플은 수정과 삭제가 불가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>인덱싱과 슬라이싱</li>
+</ol>
+
+<p>튜플은 리스트처럼 인덱싱과 슬라이싱이 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="mi">1</span>
+<span class="mi">5</span>
+<span class="mi">7</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>기본연산</li>
+</ol>
+
+<p>튜플은 리스트처럼 +,*가 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s">"q"</span> <span class="p">,</span> <span class="s">"w"</span> <span class="p">,</span> <span class="s">"e"</span> <span class="p">,</span> <span class="s">"r"</span><span class="p">,</span> <span class="s">"t"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s">'q'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="s">'t'</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="s">'q'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="s">'t'</span><span class="p">,</span> <span class="s">'q'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="s">'t'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="10-세트집합">10. 세트(집합)</h3>
+
+<p>세트는 중복이 안되고, 순서가 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">변수명</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="ow">or</span>
+<span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>위와 같이 세트를 만들 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A_group</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'빨강'</span><span class="p">,</span> <span class="s">'노랑'</span><span class="p">,</span> <span class="s">'초록'</span><span class="p">,</span> <span class="s">'파랑'</span> <span class="p">}</span>
+<span class="n">B_group</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">'노랑'</span><span class="p">,</span> <span class="s">'보라'</span><span class="p">,</span> <span class="s">'분홍'</span><span class="p">,</span> <span class="s">'주황'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ol>
+  <li>교집합</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&amp;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">intersection</code></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span> <span class="o">&amp;</span> <span class="n">B_group</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">B_group</span><span class="p">))</span>
+<span class="p">{</span><span class="s">'노랑'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>합집합</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">|</code></li>
+  <li><code class="language-plaintext highlighter-rouge">union</code></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span> <span class="o">|</span> <span class="n">B_group</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span><span class="p">.</span><span class="n">union</span><span class="p">(</span><span class="n">B_group</span><span class="p">))</span>
+<span class="p">{</span><span class="s">'주황'</span><span class="p">,</span> <span class="s">'노랑'</span><span class="p">,</span> <span class="s">'분홍'</span><span class="p">,</span> <span class="s">'보라'</span><span class="p">,</span> <span class="s">'초록'</span><span class="p">,</span> <span class="s">'파랑'</span><span class="p">,</span> <span class="s">'빨강'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>차집합</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-</code></li>
+  <li><code class="language-plaintext highlighter-rouge">difference</code></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span> <span class="o">-</span> <span class="n">B_group</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span><span class="p">.</span><span class="n">difference</span><span class="p">(</span><span class="n">B_group</span><span class="p">))</span>
+<span class="p">{</span><span class="s">'초록'</span><span class="p">,</span> <span class="s">'파랑'</span><span class="p">,</span> <span class="s">'빨강'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>세트 관련함수</li>
+</ol>
+
+<ul>
+  <li>add : 값 추가하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">A_group</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">"검정"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span><span class="p">)</span>
+<span class="p">{</span><span class="s">'파랑'</span><span class="p">,</span> <span class="s">'초록'</span><span class="p">,</span> <span class="s">'빨강'</span><span class="p">,</span> <span class="s">'노랑'</span><span class="p">,</span> <span class="s">'검정'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>remove : 값 제거하기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">A_group</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"초록"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">A_group</span><span class="p">)</span>
+<span class="p">{</span><span class="s">'빨강'</span><span class="p">,</span> <span class="s">'파랑'</span><span class="p">,</span> <span class="s">'검정'</span><span class="p">,</span> <span class="s">'노랑'</span><span class="p">}</span>
+</code></pre></div></div>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#python">python</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

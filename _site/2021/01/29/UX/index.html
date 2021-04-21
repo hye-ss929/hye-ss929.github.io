@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>UX | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="UX" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="웹 사이트의 발전" />
+<meta property="og:description" content="웹 사이트의 발전" />
+<link rel="canonical" href="http://localhost:4000/2021/01/29/UX/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/29/UX/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-29T14:20:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="UX" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/29/UX/"},"description":"웹 사이트의 발전","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/29/UX/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"UX","dateModified":"2021-01-29T14:20:00+09:00","datePublished":"2021-01-29T14:20:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">UX</h1>
+  <div class="post-meta"><time datetime="2021-01-29T14:20:00+09:00" itemprop="datePublished">29 Jan 2021</time></div>
+
+  <h2 id="웹-사이트의-발전">웹 사이트의 발전</h2>
+
+<ul>
+  <li>User Interaction 의 중요성 증가 + 웹 서비스의 복잡성 증가 + 사용자 수, 데이터의 양 증가</li>
+  <li>이전에 겪지 못한 두 가지 문제 - 1. 동시 접속자 수, 2. 데이터의 양 → System architecture 의 발전 -웹 사이트/서비스들이 엄청나게 발전되고 규모가 커짐에 따라 시스템 구조도 훨씬 더 복잡하고 커지게 됨</li>
+</ul>
+
+<h2 id="spa--ssr--csr">SPA + SSR + CSR</h2>
+
+<ul>
+  <li>
+    <p>SPA(Single Page Application)
+:페이지가 하나인 어플리케이션
+SPA로 렌더링 할 경우 서버에서 제공하는 페이지가 한 페이지이기 때문에 로딩을 한 번 하고나서 페이지를 이동할 때마다 서버에 새로운 페이지를 요청하는 것이 아닌 새 페이지에서 필요한 데이터만 받아와서 다른 종류의 뷰를 보여주는 것</p>
+  </li>
+  <li>
+    <dl>
+      <dt>SSR(Server Side Rendering)</dt>
+      <dd>서버에서 렌더링을 작업하는 것
+장점) 초기 렌더링 속도가 매우 빠르며 SEO를 사용할 수 있음
+단점) 간단한 데이터 수정에도 서버를 거쳐야하는 불편함이 따르기 때문에 초기 렌더링 수행은 빠르지만 연속적으로 렌더링 수행을 할 경우 서버에 과부하가 올 수 있음</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>CSR ( Client Side Rendering)</dt>
+      <dd>렌더링에서 사용자에게 필요한 부분만 서버로부터 로딩하는 방식
+주고받게 되는 데이터의 양이 현저히 줄어들고 연속된 렌더링으로 인한 과부하를 줄일 수 있음</dd>
+    </dl>
+  </li>
+</ul>
+
+<h2 id="uxuser-experience---사용자-경험">UX(User Experience) - 사용자 경험</h2>
+
+<p><img src="https://images.velog.io/images/hyehye/post/9dc1d82a-e1e7-4c29-a1d7-da4ad61f9d88/image.png" alt="" /></p>
+
+<h4 id="사용자-규칙">사용자 규칙</h4>
+
+<ul>
+  <li>사용자는 웹페이지를 읽지 않고, 단지 훑어본다.</li>
+  <li>사람들은 사용법을 스스로 알아낼 수 없는 웹사이트는 사용하지 않는다.</li>
+  <li>사용자는 흔히 ‘정보의 냄새’라고 부르는 자취를 따라가며, 목표를 분명히 보여주는 링크는 사용자가 따라갈 수 있는 강력한 냄새를 뿜어낸다.</li>
+  <li>창의적이고 혁신적인 방법은 사용자의 편의성이 확실히 보장된 상태에서 해야한다.</li>
+  <li>명료성이 일관성보다 중요하다.</li>
+  <li>클릭할 수 있는 요소를 명확히 표시해야한다.</li>
+</ul>
+
+<h4 id="ui---ux">UI - UX</h4>
+
+<p><img src="https://images.velog.io/images/hyehye/post/e19ada0c-8c36-4cac-b1cf-1b26f5fe36cc/image.png" alt="" />
+<img src="https://images.velog.io/images/hyehye/post/44ecd2c7-eeda-443e-ba2f-b86f02e52b5d/image.png" alt="" /></p>
+
+<h3 id="-ux를-고려한-웹사이트는-사용자의-경험을-예측하여-시각적인-피로도를-낮추고-더불어-사이트의-접근성도-높힌다">✨ UX를 고려한 웹사이트는 사용자의 경험을 예측하여 시각적인 피로도를 낮추고 더불어 사이트의 접근성도 높힌다!</h3>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#기타">기타</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

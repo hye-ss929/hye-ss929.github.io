@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>JavaScript - Date 객체 | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="JavaScript - Date 객체" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="Date 객체" />
+<meta property="og:description" content="Date 객체" />
+<link rel="canonical" href="http://localhost:4000/2021/01/17/JavaScript/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/17/JavaScript/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-17T14:20:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="JavaScript - Date 객체" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/17/JavaScript/"},"description":"Date 객체","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/17/JavaScript/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"JavaScript - Date 객체","dateModified":"2021-01-17T14:20:00+09:00","datePublished":"2021-01-17T14:20:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">JavaScript - Date 객체</h1>
+  <div class="post-meta"><time datetime="2021-01-17T14:20:00+09:00" itemprop="datePublished">17 Jan 2021</time></div>
+
+  <h2 id="date-객체">Date 객체</h2>
+
+<p>Date 객체를 활용하면 생성 및 수정 시간을 저장하거나 시간을 측정할 수 있고 현재 날짜를 출력하는 용도 등으로 활용할 수 있다.</p>
+
+<h3 id="날짜-객체-생성하기">날짜 객체 생성하기</h3>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">new Date()</code></dt>
+  <dd>현재시간 기준</dd>
+</dl>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">now</span><span class="p">);</span> <span class="c1">// Fri Jan 15 2021 20:30:26 GMT+0900 (대한민국 표준시)</span>
+</code></pre></div></div>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">new Date(milliseconds)</code></dt>
+  <dd>UTC 기준(UTC+0) 1970년 1월 1일 0시 0분 0초에서 밀리초 후 시점</dd>
+  <dt><code class="language-plaintext highlighter-rouge">new Date(datestring)</code></dt>
+  <dd>날짜를 표현하는 문자열 값</dd>
+</dl>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="dl">"</span><span class="s2">2017-01-26</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">date</span><span class="p">);</span>
+<span class="c1">// 인수로 시간은 지정하지 않았기 때문에 GMT 자정이라고 가정하고</span>
+<span class="c1">// 코드가 실행되는 시간대(timezone)에 따라 출력 문자열이 바뀝니다.</span>
+<span class="c1">// 따라서 얼럿 창엔</span>
+<span class="c1">// Thu Jan 26 2017 11:00:00 GMT+1100 (Australian Eastern Daylight Time)</span>
+<span class="c1">// 혹은</span>
+<span class="c1">// Wed Jan 25 2017 16:00:00 GMT-0800 (Pacific Standard Time)등이 출력됩니다.</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">new Date(year, month, date, hours, minutes, seconds, ms)</code></p>
+
+<ul>
+  <li>year : 반드시 4자리 값</li>
+  <li>month : 0(1월) ~ 11(12월)</li>
+  <li>day : 기본값은 1</li>
+  <li>hours, minutes, seconds, ms : 기본값은 0</li>
+</ul>
+
+<h3 id="날짜-얻기">날짜 얻기</h3>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">getFullYear()</code></dt>
+  <dd>연도(YYYY) 반환
+<code class="language-plaintext highlighter-rouge">getMonth()</code></dd>
+  <dd>월 반환(getMonth 값을 받을 때, 현재 달보다 1 작은 값이 반환되므로 주의)
+<code class="language-plaintext highlighter-rouge">getDate()</code></dd>
+  <dd>일 반환
+<code class="language-plaintext highlighter-rouge">getHours(), getMinutes(), getSeconds(), getMilliseconds()</code></dd>
+  <dd>시, 분, 초, 밀리초 반환</dd>
+</dl>
+
+<h4 id="gettime">getTime</h4>
+
+<ul>
+  <li>날짜의 밀리초를 반환</li>
+  <li>시간이 지난 뒤 새로 호출하면 시간이 지났으니 보다 큰 숫자를 반환</li>
+  <li>getTime함수로 비교연산을 통해 언제가 더 과거인지 판단가능(값이 더 작으면 과거)</li>
+</ul>
+
+<h4 id="날짜-구성요소-설정">날짜 구성요소 설정</h4>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">setFullYear(year, [month], [date])</code></dt>
+  <dd>현지 시간에 따라 지정된 날짜의 전체 연도 설정</dd>
+  <dd>반환값 → number, 지정한 시간을 1970년 1월 1일을 기준으로 하는 밀리세컨드로 리턴
+<code class="language-plaintext highlighter-rouge">setMonth(month, [date])</code>
+<code class="language-plaintext highlighter-rouge">setDate(date)</code>
+<code class="language-plaintext highlighter-rouge">setHours(hour, [min], [sec], [ms])</code>
+<code class="language-plaintext highlighter-rouge">setMinutes(min, [sec], [ms])</code>
+<code class="language-plaintext highlighter-rouge">setSeconds(sec, [ms])</code>
+<code class="language-plaintext highlighter-rouge">setMilliseconds(ms)</code>
+<code class="language-plaintext highlighter-rouge">setTime(milliseconds)</code></dd>
+</dl>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#javascript">javascript</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>

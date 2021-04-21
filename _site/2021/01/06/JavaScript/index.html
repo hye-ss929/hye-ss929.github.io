@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/assets/styles.css"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Javascript - Promise | hyesung</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Javascript - Promise" />
+<meta name="author" content="Hyesung Heo" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="Promise" />
+<meta property="og:description" content="Promise" />
+<link rel="canonical" href="http://localhost:4000/2021/01/06/JavaScript/" />
+<meta property="og:url" content="http://localhost:4000/2021/01/06/JavaScript/" />
+<meta property="og:site_name" content="hyesung" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-06T14:10:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Javascript - Promise" />
+<meta name="google-site-verification" content="xxxxx" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/01/06/JavaScript/"},"description":"Promise","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"Hyesung Heo"},"url":"http://localhost:4000/2021/01/06/JavaScript/","author":{"@type":"Person","name":"Hyesung Heo"},"headline":"Javascript - Promise","dateModified":"2021-01-06T14:10:00+09:00","datePublished":"2021-01-06T14:10:00+09:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="hyesung" />
+</head>
+
+
+  <body>
+
+    <div class="container pure-g"><div class="sidebar-left pure-u-1 pure-u-md-1-4" style="background-color: rgb(40, 73, 77); color: rgb(255, 255, 255); background-image: url(/bc.png);"><header class="masthead">
+  <div class="avatar"><img src="/mini.jpg" class="avatar-image" alt="Hyesung Heo">
+    </div>
+  <div class="masthead-title">
+    <a href="/" title="Home">hyesung</a>
+  </div>
+  <div class="masthead-tagline">
+    <small>심플한 것을 좋아하는 🌱 𝑭𝒓𝒐𝒏𝒕-𝒆𝒏𝒅 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓</small>
+  </div><nav class="navigation">
+    <ul class="navigation-list"><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/">Blog</a>
+      </li><li class="navigation-item">
+        <a onclick="sessionStorage.setItem('forceCheckScroll', 'true')" href="/about/">About</a>
+      </li></ul>
+  </nav><div class="social pure-menu pure-menu-horizontal">
+      <ul class="social-icons pure-menu-list">
+      <li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="mailto://hye.ss929@gmail.com">
+            <i class="fas fa-envelope" title="Email"></i>
+          </a>
+        </li><li class="pure-menu-item">
+          <a class="social-icon pure-menu-link" href="https://github.com/hye-ss929">
+            <i class="fab fa-github" title="GitHub"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</header>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-1-2"><main>
+  <article class="post">
+  <h1 class="post-title">Javascript - Promise</h1>
+  <div class="post-meta"><time datetime="2021-01-06T14:10:00+09:00" itemprop="datePublished">6 Jan 2021</time></div>
+
+  <h2 id="promise">Promise</h2>
+
+<p>promise는 비동기 메서드에서 마치 동기 메서드처럼 값을 반환할 수 있습니다. 다만 최종 결과를 반환하지는 않고, 대신 프로미스를 반환해서 미래의 어떤 시점에 결과를 제공한다.</p>
+
+<p>**상태 **</p>
+
+<ul>
+  <li>pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태</li>
+  <li>fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태</li>
+  <li>rejected(거부) : 비동기 처리가 실패하거나 오류가 발생한 상태</li>
+</ul>
+
+<h3 id="1-producer-promise-만들기">1. Producer (Promise 만들기)</h3>
+
+<ul>
+  <li>새로운 Promise가 만들어질 때는 전달한 executor함수가 바로 실행이 된다.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// doing some heavy work(networt, read files)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">doing something...</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">resolve</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/71581b5e-cb86-4e36-a6f3-ef8dbaf1c85a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.37.17.png" alt="" />
+‘doing something…‘이후 2초 뒤에 hello!가 콘솔에 찍힌 것을 볼 수 있다.</p>
+
+<h3 id="2-consumers--then-catch-finally-promise-사용하기">2. Consumers : then, catch, finally (Promise 사용하기)</h3>
+
+<ul>
+  <li>then : promise 가 종료가 되면 resolve 에 들어간 값을 받을 수 있다.</li>
+  <li>catch : reject 된 경우에는 then 으로 받을 경우, 에러가 발생하며 이 에러를 catch로 잡을 수 있다.</li>
+  <li>finally : 성공과 실패와 관계없이 무조건 마지막에 호출되어진다.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// doing some heavy work(networt, read files)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">doing something...</span><span class="dl">"</span><span class="p">);</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">no network</span><span class="dl">"</span><span class="p">));</span>
+  <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">promise</span> <span class="c1">//</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/0bc67a85-4cf7-457c-8a44-d7114a225d22/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.49.34.png" alt="" /></p>
+
+<h3 id="3-promise-chaining-promise-연결하기">3. Promise chaining (Promise 연결하기)</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fetchNuber</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">//1초 있다가 1를 전달</span>
+
+<span class="nx">fetchNuber</span> <span class="c1">//</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// 1*2 = 2</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// 2*3 = 6</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">//6-1 = 5</span>
+    <span class="p">});</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>then은 값을 바로 전달할수도 있고 Promise를 전달할 수도 있다.
+2초의 시간 소요 뒤 5가 출력되는 것을 볼 수 있다.
+<img src="https://images.velog.io/images/hyehye/post/4910cf8d-d317-46d7-b5e1-78bae5614b8c/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.55.05.png" alt="" /></p>
+
+<h3 id="4-오류처리">4. 오류처리</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getHen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span>
+  <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="dl">"</span><span class="s2">🐓</span><span class="dl">"</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">getEgg</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hen</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">hen</span><span class="p">}</span><span class="s2"> =&gt; 🥚`</span><span class="p">)),</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">cook</span> <span class="o">=</span> <span class="p">(</span><span class="nx">egg</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">egg</span><span class="p">}</span><span class="s2"> =&gt; 🍳`</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>총 3가지의 프로미스를 리턴하는 함수로, 1초 있다가 🐓을 리턴, 🐓을 받아와서 🥚를 리턴, 🥚를 받아와서 🍳를 가정하였다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">hen</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">getEgg</span><span class="p">(</span><span class="nx">hen</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">egg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">cook</span><span class="p">(</span><span class="nx">egg</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">cook</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cook</span><span class="p">));</span>
+
+<span class="c1">// ⬇️ 한가지만 받아서 그대로 전달하는 경우에는 아래처럼 생략이 가능하여 짧게 표현할 수 있다.</span>
+<span class="nx">getHen</span><span class="p">()</span> <span class="c1">//</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/35f38a8f-7eef-4637-9cf2-d428e1eb54b4/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.04.33.png" alt="" />
+에러를 잡지 않았기 때문에 에러메세지가 뜨는 것을 확인할 수 있다. 그리고 난 뒤 맨 뒤에 catch를 통해 에러를 잡아주게 되면 에러가 발생했지만 에러가 맨 아래로 전달되면서 catch가 잡힌 것을 볼 수 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span> <span class="c1">//</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><img src="https://images.velog.io/images/hyehye/post/86548489-d013-49f5-9f25-8babdcea0065/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.07.56.png" alt="" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getHen</span><span class="p">()</span> <span class="c1">//</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getEgg</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">🥖</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">cook</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>계란을 받아올 때 문제가 생긴다면, 다른 걸로 대체해서 Promise 체인에 문제가 발생하지 않도록 처리를 할 수 있다.
+<img src="https://images.velog.io/images/hyehye/post/93f68035-34e1-470d-962c-096f0cfbdf8a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-01-05%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.11.13.png" alt="" /></p>
+
+<h3 id="-콜백지옥---promise-이용하기">✨ 콜백지옥 -&gt; Promise 이용하기</h3>
+
+<p>지난 시간에 작성한 콜백지옥을 Promise를 이용하여 깔끔하게 코드처리 할 수 있다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">UserStorage</span> <span class="p">{</span>
+  <span class="nx">loginUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span>
+          <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">hyesung</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">qwerty</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span>
+          <span class="p">(</span><span class="nx">id</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">coder</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">zxcvb</span><span class="dl">"</span><span class="p">)</span>
+        <span class="p">)</span> <span class="p">{</span>
+          <span class="nx">resolve</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">not found</span><span class="dl">"</span><span class="p">));</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">getRoles</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">hyesung</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">resolve</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hyesung</span><span class="dl">"</span><span class="p">,</span> <span class="na">role</span><span class="p">:</span> <span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span> <span class="p">});</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">no access</span><span class="dl">"</span><span class="p">));</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">userStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserStorage</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">enter your id</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">"</span><span class="s2">enter your password</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">userStorage</span>
+  <span class="p">.</span><span class="nx">loginUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">userStorage</span><span class="p">.</span><span class="nx">getRoles</span><span class="p">(</span><span class="nx">user</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">, you have a </span><span class="p">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span><span class="p">}</span><span class="s2"> role`</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>출처 : 드림코딩 by 엘리 https://youtu.be/JB_yU6Oe2eE</p>
+</blockquote>
+
+
+  
+    
+      <div class="post-tags-section">
+  <i class="post-tags-icon fas fa-tags"></i>
+  <ul class="post-tags"><li>
+        <a class="post-tag" href="/tags/#javascript">javascript</a></li></ul>
+</div>
+
+  
+
+  
+</article>
+
+
+<aside class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2021/02/18/RESTful-API/">
+          RESTful API
+          <small><time datetime="2021-02-18T00:00:00+09:00">18 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/15/JavaScript/">
+          JavaScript - Monster
+          <small><time datetime="2021-02-15T14:20:00+09:00">15 Feb 2021</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/2021/02/09/JavaScript/">
+          JavaScript - spread syntax
+          <small><time datetime="2021-02-09T14:20:00+09:00">09 Feb 2021</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+</main>
+
+<footer class="footer"><small>
+    &copy; 2020&nbsp;-&nbsp;2021 <a href="https://github.com/hye-ss929">Hyesung Heo</a>. All rights reserved.
+    Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/vszhub/not-pure-poole">Not Pure Poole</a>.
+  </small>
+</footer>
+</div>
+      <div class="sidebar-right pure-u-1 pure-u-md-1-4">
+</div>
+    </div>
+
+    <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script><script>
+  function strip(str, remove) {
+    while (str.length > 0 && remove.indexOf(str.charAt(0)) != -1) {
+      str = str.substr(1);
+    }
+    while (str.length > 0 && remove.indexOf(str.charAt(str.length - 1)) != -1) {
+      str = str.substr(0, str.length - 1);
+    }
+    return str;
+  }
+
+  function scroll() {
+    console.log('scroll');
+    window.scrollTo({
+      left: 0, 
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+    sessionStorage.removeItem('forceCheckScroll');
+  }
+
+  const forceCheckScroll = sessionStorage.getItem('forceCheckScroll') === 'true';
+  const checkScroll = strip(window.location.pathname, '/') !== strip('', '/');
+
+  if (forceCheckScroll || checkScroll) {
+    const maxWidth = "(max-width: 48rem)";
+    const result = window.matchMedia(maxWidth);
+    if (result.matches) {
+      scroll();
+    } else {
+      result.addListener((match) => {
+        if (match.media == maxWidth) {
+          if (match.matches) {
+            scroll();
+          }
+        }
+      });
+    }
+  }
+</script>
+</body>
+</html>
