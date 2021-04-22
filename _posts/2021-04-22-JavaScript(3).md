@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript - 콜백함수
-date: 2021-04-21 17:50 +0800
+date: 2021-04-22 17:50 +0800
 tags: [JavaScript]
 excerpt: JavaScript - 콜백함수
 ---
