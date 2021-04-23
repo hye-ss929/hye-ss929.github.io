@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript - 클래스
-date: 2021-04-23
+date: 2021-04-23 04:53 +0800
 tags: [JavaScript]
 excerpt: JavaScript - 클래스
 ---
