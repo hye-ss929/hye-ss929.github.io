@@ -39,7 +39,7 @@ foo();
 ### Strict Mode의 특징
 
 - 기존에 조용히 무시되던 에러들을 throwing 함
-- 실수로 블로벌 변수를 생성하는 것을 불가능하게 함
+- 실수로 글로벌 변수를 생성하는 것을 불가능하게 함
 - 전체 스크립트 또는 부분 함수에 적용 가능
 - {} 괄호로 묶여진 block문, context에 적용되지 않음
 - JavaSCript 엔진의 최적화 작업을 어렵게 만드는 실수를 바로 잡음. 종종 strict Mode(엄격 모드)는 sloppy mode(느슨한 모드)의 동일한 코드보다 더 빨리 작동하도록 만들어짐
@@ -73,4 +73,4 @@ Object.preventExtensions(fixed);
 fixed.newProp = "ohai"; // TypeError 발생
 ```
 
-> 출처 : [MDM | Strict mode](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
+> 출처 : [MDM](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode)
