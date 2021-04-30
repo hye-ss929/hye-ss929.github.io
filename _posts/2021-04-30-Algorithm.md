@@ -1,7 +1,7 @@
 ---
 layout: post
 title: [Algorithm] 짝수와 홀수
-date: 2021-04-30 12:54 +0800
+date: 2021-04-30
 tags: [Algorithm]
 excerpt: 짝수와 홀수
 ---
