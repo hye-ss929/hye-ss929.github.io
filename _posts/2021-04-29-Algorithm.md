@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 평균구하기
-date: 2021-04-26 12:54 +0800
+title: [Algorithm] 평균구하기
+date: 2021-04-29 12:54 +0800
 tags: [Algorithm]
 excerpt: 평균구하기
 ---
